@@ -8,7 +8,7 @@ const CardServico = () => {
             <div className="content">
                 <h2>Troca de óleo gol</h2>
                 <p>Data: 05/04/2025</p>
-                <p>Valor: R$ 000</p>
+                <p>Valor: R$ 120,00</p>
                 {/* <p>Placa: NBF0956</p> */}
             </div>
             <Botao classe="btn-card-serv botoes-padrao" texto="Ver mais" />

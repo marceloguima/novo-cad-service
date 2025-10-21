@@ -28,6 +28,11 @@ function App() {
                      <CardServico />
                      <CardServico />
                      <CardServico />
+                     <CardServico />
+                     <CardServico />
+                     <CardServico />
+                     <CardServico />
+                     <CardServico />
                 </div>
 
                 <div className="buttons">
