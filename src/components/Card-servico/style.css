@@ -1,0 +1,32 @@
+
+.card-servico{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 0 10px;
+   box-shadow:  1px 2px 4px #616161;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.content h2{
+  font-size: 1rem;
+  
+}
+
+.btn-card-serv{
+  background: #235e96;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 20px;
+  cursor: pointer;
+  font-size: 12px;
+}
