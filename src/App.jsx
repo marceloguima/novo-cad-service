@@ -15,7 +15,7 @@ function App() {
 
                 <nav>
                     <ul>
-                        <NavLink to="/servicoDia" className={ ({isActive}) => (isActive ? 'link-ativo' : 'link-inativo')}>
+                        <NavLink to="/" className={ ({isActive}) => (isActive ? 'link-ativo' : 'link-inativo')}>
 
                             <li>HOJE</li>
                         </NavLink>

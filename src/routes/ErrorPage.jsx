@@ -9,8 +9,10 @@ console.error(error)
     <div>
       <h1>Ops!</h1>
       <p>Temos um problema.</p>
-      <p>{error.status}</p>
-      <p>{error.data}</p>
+      <p>Página não encontrada.</p>
+      {/* <p>{error.status}</p>
+      <p>{error.data}</p> */}
+
     </div>
   )
 }

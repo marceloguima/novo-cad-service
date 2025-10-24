@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App.jsx";
 import Inicial from "./routes/inicial.jsx";
 import Cadastro from "./routes/Cadastro.jsx";
-import Home from "./routes/Home.jsx";
 import ServicosDoDia from "./routes/ServicosDoDia.jsx";
 import ServicosDaSemana from "./routes/ServicosDaSemana.jsx";
 import ServicosDoMes from "./routes/ServicosDoMes.jsx";
@@ -25,10 +24,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
 
         children: [
-            { 
+           
+// serviço do dia será a home
+             {
               path: "/",
-              element: <Home /> 
-
+              element: <ServicosDoDia />
             },
             { 
               path: "inicial", 
@@ -38,10 +38,7 @@ const router = createBrowserRouter([
                 path: "cadastro",
                 element: <Cadastro />,
             },
-            {
-              path: "servicoDia",
-              element: <ServicosDoDia />
-            },
+           
              {
               path: "servicoSemana",
               element: <ServicosDaSemana/>
