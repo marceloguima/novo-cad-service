@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import Inicial from "./routes/Inicial.jsx";
-import Cadastro from "./routes/Cadastro.jsx";
+import Cadastro from "./routes/CadastroUser/index.jsx";
+import Login from "./routes/Login/index.jsx"
 import ServicosDoDia from "./routes/ServicosDoDia.jsx";
 import ServicosDaSemana from "./routes/ServicosDaSemana.jsx";
 import ServicosDoMes from "./routes/ServicosDoMes.jsx";
@@ -24,29 +25,32 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
 
         children: [
-           
-// serviço do dia será a home
-             {
-              path: "/",
-              element: <ServicosDoDia />
+            // serviço do dia será a home
+            {
+                path: "/",
+                element: <ServicosDoDia />,
             },
-            { 
-              path: "inicial", 
-              element: <Inicial /> 
+            {
+                path: "inicial",
+                element: <Inicial />,
             },
             {
                 path: "cadastro",
                 element: <Cadastro />,
             },
-           
-             {
-              path: "servicoSemana",
-              element: <ServicosDaSemana/>
+            {
+                path: "login",
+                element: <Login />,
+            },
+
+            {
+                path: "servicoSemana",
+                element: <ServicosDaSemana />,
             },
             {
-              path: "servicoMes",
-              element: <ServicosDoMes />
-            }
+                path: "servicoMes",
+                element: <ServicosDoMes />,
+            },
         ],
     },
 ]);

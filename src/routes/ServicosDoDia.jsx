@@ -7,18 +7,9 @@ const ServicosDoDia = () => {
             <main>
                 <div className="services">
                     <CardServico />
-                   
                 </div>
 
                 <div className="buttons">
-                    {/* <Botao
-                        classe="fechar-mes botoes-padrao"
-                        texto="Fechar mês"
-                    />
-                    <Botao
-                        classe="relatorio botoes-padrao"
-                        texto="Baixar relatório"
-                    /> */}
                     <Botao
                         classe="novo-servico botoes-padrao"
                         texto="Novo serviço"

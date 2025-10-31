@@ -1,7 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./App.css";
-import Botao from "./components/Botao";
-import CardServico from "./components/Card-servico";
 import CardTotal from "./components/Card-total";
 
 function App() {
