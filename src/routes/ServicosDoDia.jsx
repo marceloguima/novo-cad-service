@@ -1,9 +1,14 @@
 import CardServico from "../components/Card-servico";
 import Botao from "../components/Botao";
+import Header from "../components/Header";
+import CardTotal from "../components/Card-total";
+import NavBar from "../components/NavBar";
 
 const ServicosDoDia = () => {
     return (
-        <div>
+        <>
+
+        <Header card={<CardTotal/>} nav={<NavBar/>}/>
             <main>
                 <div className="services">
                     <CardServico />
@@ -15,8 +20,8 @@ const ServicosDoDia = () => {
                         texto="Novo serviço"
                     />
                 </div>
-            </main>{" "}
-        </div>
+            </main>
+        </>
     );
 };
 

@@ -1,3 +1,5 @@
+/* estilos globais */
+
 * {
     margin: 0;
     padding: 0;
@@ -19,13 +21,16 @@ body {
 }
 
 .botoes-padrao {
-    width: 100%;
     box-shadow: 1px 2px 4px #616161;
-    background: #235e96;
-    color: #fff;
     border: none;
     border-radius: 5px;
     padding: 12px 20px;
     cursor: pointer;
     font-size: 0.8rem;
 }
+
+main {
+    width: 100%;
+    padding: 10px;
+}
+

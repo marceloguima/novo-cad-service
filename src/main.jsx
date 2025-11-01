@@ -8,6 +8,7 @@ import Login from "./routes/Login/index.jsx"
 import ServicosDoDia from "./routes/ServicosDoDia.jsx";
 import ServicosDaSemana from "./routes/ServicosDaSemana.jsx";
 import ServicosDoMes from "./routes/ServicosDoMes.jsx";
+import CadastroServico from "./routes/CadastroServico/index.jsx";
 
 import ErrorPage from "./routes/ErrorPage.jsx";
 
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login />,
+            },
+
+              {
+                path: "cadastroServico",
+                element: <CadastroServico />,
             },
 
             {

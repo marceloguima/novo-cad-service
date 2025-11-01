@@ -1,15 +1,9 @@
-.campo {
-    width: 100%;
-    padding: 10px 5px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    outline: none;
-    border: solid 1px #d3d3d3;
-    box-shadow: 1px 2px 4px #616161;
-}
 
 .cadastrar {
     margin-top: 20px;
+    width: 100%;
+    background: #235e9c;
+    color: #fff;
 }
 
 .check-count{
