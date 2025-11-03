@@ -27,9 +27,11 @@ console.log("oi")
                     <CardServico
                         descricao={servico.descricao}
                         valor={"R$ " + servico.valor}
-                        // data={"Data: " + servico.data}
-                        // modelo={"Modelo: " + servico.modelo}
-                        // placa={"placa: " + servico.placa}
+                        data={"Data: " + servico.data}
+                        modelo={"Modelo: " + servico.modelo}
+                        placa={"placa: " + servico.placa}
+                        vendedor={"Vendedor: " + servico.vendedor}
+                        obs={"Observação: " + servico.obs}
 
                     />
                 </div>

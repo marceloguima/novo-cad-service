@@ -28,9 +28,10 @@
 
 /* campo do textarea da observação */
 .obs {
-    /* border: solid 1px #c0c0c0;
-        box-shadow: 1px 2px 4px #dddddd; */
-
+    width: 100%;
+    min-height: 100px;
+    border: solid 1px #c0c0c0;
+    box-shadow: 1px 2px 4px #dddddd;
     padding: 5px;
     border-radius: 5px;
     font-size: 0.8rem;

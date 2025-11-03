@@ -10,8 +10,6 @@ import NavBar from "../../components/NavBar";
 // import { ServicoContext } from "../../context/ServicoContext";
 
 const CadastroServico = () => {
-
-
     const {
         register,
         handleSubmit,
@@ -31,6 +29,8 @@ const CadastroServico = () => {
             data: dadosServico.data,
             modelo: dadosServico.modelo,
             placa: dadosServico.placa,
+            vendedor: dadosServico.vendedor,
+            obs: dadosServico.obs,
         };
         // setServico(servico);
         // console.log(servico.descricao)
@@ -93,35 +93,34 @@ const CadastroServico = () => {
 
                     <div className="valor-data">
                         <CampoEntrada
-                        tipo="text"
-                        place="Ex: Hilux"
-                        classe="campo-entrada"
-                        label="Modelo veículo"
-                        id="name"
-                        htmlFor="name"
-                        // onChange={handlePlaca}
-                        erro={errors["modelo"]}
-                        {...register("modelo", {
-                            required: "Preencha este campo",
-                        })}
-                    />
+                            tipo="text"
+                            place="Ex: Hilux"
+                            classe="campo-entrada"
+                            label="Modelo veículo"
+                            id="name"
+                            htmlFor="name"
+                            // onChange={handlePlaca}
+                            erro={errors["modelo"]}
+                            {...register("modelo", {
+                                required: "Preencha este campo",
+                            })}
+                        />
 
                         <CampoEntrada
-                        tipo="text"
-                        place="Ex: NBC9I65"
-                        classe="campo-entrada"
-                        label="Placa"
-                        id="name"
-                        htmlFor="name"
-                        // onChange={handlePlaca}
-                        erro={errors["placa"]}
-                        {...register("placa", {
-                            required: "Preencha este campo",
-                        })}
-                    />
+                            tipo="text"
+                            place="Ex: NBC9I65"
+                            classe="campo-entrada"
+                            label="Placa"
+                            id="name"
+                            htmlFor="name"
+                            // onChange={handlePlaca}
+                            erro={errors["placa"]}
+                            {...register("placa", {
+                                required: "Preencha este campo",
+                            })}
+                        />
                     </div>
 
-                   
                     <CampoEntrada
                         tipo="text"
                         place="Nome do atendente da ordem de serviço"
@@ -135,7 +134,11 @@ const CadastroServico = () => {
                         })}
                     />
                     <label htmlFor="obs">Observação</label>
-                    <textarea name="obs" id="obs"></textarea>
+                    <textarea
+                        name="obs"
+                        id="obs"
+                        {...register("obs")}
+                    ></textarea>
 
                     <div className="botoes">
                         <Botao
