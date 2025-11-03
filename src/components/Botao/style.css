@@ -1,0 +1,9 @@
+#btn-principal {
+    box-shadow: 1px 2px 4px #616161;
+    background: #235e9c;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}

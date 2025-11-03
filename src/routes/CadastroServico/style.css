@@ -21,7 +21,7 @@
 }
 
 .btn-cancelar{
-    background: #b1b1b1;
+    background: #b1b1b1 !important;
     padding: 12px;
     width: 50%;
 }

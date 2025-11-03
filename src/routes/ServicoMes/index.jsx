@@ -1,8 +1,9 @@
-import Botao from "../components/Botao";
-import CardServico from "../components/Card-servico";
-import CardTotal from "../components/Card-total";
-import NavBar from "../components/NavBar";
-import Header from "../components/Header";
+import Botao from "../../components/Botao";
+import CardServico from "../../components/Card-servico";
+import CardTotal from "../../components/Card-total";
+import NavBar from "../../components/NavBar";
+import Header from "../../components/Header";
+import "./style.css"
 
 const ServicoDoMes = () => {
     return (
@@ -24,15 +25,15 @@ const ServicoDoMes = () => {
 
                 <div className="buttons">
                     <Botao
-                        classe="fechar-mes botoes-padrao"
+                        classe="fechar-mes"
                         texto="Fechar mês"
                     />
                     <Botao
-                        classe="relatorio botoes-padrao"
+                        classe="relatorio"
                         texto="Baixar relatório"
                     />
                     <Botao
-                        classe="novo-servico botoes-padrao"
+                        classe="novo-servico"
                         texto="Novo serviço"
                     />
                 </div>
