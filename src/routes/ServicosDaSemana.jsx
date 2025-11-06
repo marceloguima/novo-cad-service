@@ -15,8 +15,15 @@ const ServicosDaSemana = () => {
             />
             <main>
                 <div className="services">
-                    <CardServico />
-                    <CardServico />
+                    <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            data={"Data: " + objServico.data}
+                            modelo={"Modelo: " + objServico.modelo}
+                            placa={"placa: " + objServico.placa}
+                            vendedor={"Vendedor: " + objServico.vendedor}
+                            obs={"Observação: " + objServico.obs}
+                        />
                 </div>
 
                 <div className="buttons">

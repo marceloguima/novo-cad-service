@@ -6,10 +6,9 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar";
 
-// import { useContext } from "react";
-// import { ServicoContext } from "../../context/ServicoContext";
-
 const CadastroServico = () => {
+    const [msgSucesso, setMsgSucesso] = useState("");
+
     const {
         register,
         handleSubmit,
@@ -17,11 +16,8 @@ const CadastroServico = () => {
         formState: { errors },
     } = useForm();
 
-    // const { setServico } = useContext(ServicoContext);
-
     // envia form
     const submit = (dadosServico) => {
-        // console.log(dadosServico);
         // dados usados para renderizar o cardServico "outras páginas"
         const servicoCadastrado = {
             descricao: dadosServico.descricao,
@@ -32,11 +28,24 @@ const CadastroServico = () => {
             vendedor: dadosServico.vendedor,
             obs: dadosServico.obs,
         };
-        // setServico(servico);
-        // console.log(servico.descricao)
-        // console.log(servico.valor)
+
         localStorage.setItem("servico", JSON.stringify(servicoCadastrado));
+
         console.log("Salvo no localStorage:", servicoCadastrado);
+
+        setTimeout(() => {
+            setMsgSucesso("");
+        }, 2500);
+        return (
+            setMsgSucesso(
+            <div className="overlay">
+                <div className="card-mensagem-sucesso">
+                    <p>{"Serviço cadastrado com sucesso!"}</p>
+                </div>
+            </div>
+            )
+        );
+       
     };
 
     console.log(errors);
@@ -47,7 +56,9 @@ const CadastroServico = () => {
     return (
         <>
             <Header nome="Cadastro de serviço" nav={<NavBar />} />
+
             <main>
+                {msgSucesso}
                 <form onSubmit={handleSubmit(submit)}>
                     <CampoEntrada
                         tipo="text"
