@@ -9,41 +9,52 @@ import OverlayPoupUp from "../../components/poup-up";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-
 const ServicosDoDia = () => {
     const [mensagemVazio, setMensagemVazio] = useState("");
     const [mensagemApagar, setMensagemApagar] = useState("");
+    // Estado para armazenar qual serviço será apagado
+    const [servicoParaApagar, setServicoParaApagar] = useState(null);
 
-
-    const [objServico, setObjServico] = useState(() =>
-        JSON.parse(localStorage.getItem("servico") || "{}")
-    );
+    const [servicos, setServicos] = useState([]);
 
     useEffect(() => {
-        const servico = JSON.parse(localStorage.getItem("servico") || "{}");
-        if (!servico || Object.keys(servico).length === 0) {
+        const servicosSalvos = JSON.parse(
+            localStorage.getItem("servicos") || "[]"
+        );
+        setServicos(servicosSalvos);
+
+        if (servicosSalvos.length === 0) {
             setMensagemVazio("Nenhum serviço cadastrado hoje.");
         } else {
             setMensagemVazio("");
         }
-    }, [objServico]);
+    }, []);
 
-    // monta o componente com o componente cardServico, com o serviço a 
+    useEffect(() => {
+        if (servicos.length === 0) {
+            setMensagemVazio("Nenhum serviço cadastrado hoje.");
+        } else {
+            setMensagemVazio("");
+        }
+    }, [servicos]);
+
+    // monta o componente com o componente cardServico, com o serviço a
     // ser apagado, verificando se realmente o usuário quer apagar.
-    const poupUpApagar = () => {
-        return setMensagemApagar(
+    const poupUpApagar = (servico, index) => {
+        setServicoParaApagar(index);
+        setMensagemApagar(
             <OverlayPoupUp
                 mensagem="Quer mesmo apagar este serviço?"
                 classNameTexto="alerta"
                 servico={
                     <CardServico
-                        descricao={objServico.descricao}
-                        valor={"R$ " + objServico.valor}
+                        descricao={servico.descricao}
+                        valor={"R$ " + servico.valor}
                         btnMaisDetalhes={
                             <Botao
                                 classe="btn-card-serv conclui-apagar"
                                 children={"Sim"}
-                                onclick={Deleta}
+                                onclick={() => Deleta(index)}
                             />
                         }
                         btnApagarServico={
@@ -59,58 +70,79 @@ const ServicosDoDia = () => {
         );
     };
 
-    // apaga 
-    const Deleta = () => {
+    const [apagando, setApagando] = useState();
+    // apaga
+    const Deleta = (index) => {
+        // remove o serviço pelo inice
+        const novosServicos = servicos.filter((_, i) => i !== index);
 
+        // animação de lixeira
+        setApagando(
+            <OverlayPoupUp img="./public/gif-lixeira.gif" mensagem="Apagando..."/>
+        );
+        setTimeout(() => {
+            setServicos(novosServicos);
+            setApagando("");
+        }, 2800);
+
+        // Atualiza o localStorage
+        localStorage.setItem("servicos", JSON.stringify(novosServicos));
+
+        // Fecha o popup
+        setMensagemApagar("");
+        setServicoParaApagar(null);
     };
 
     // cancela caso não queira mais apagar.
-    const CancelaDelete=()=>{
-        setMensagemApagar("")
-    }
+    const CancelaDelete = () => {
+        setMensagemApagar("");
+        setServicoParaApagar(null);
+    };
 
     return (
         <>
             <Header card={<CardTotal />} nav={<NavBar />} />
             <main>
                 <div className="services">
+                   
+                        {apagando}
+                    
                     {mensagemApagar}
-                    {!objServico || Object.keys(objServico).length === 0 ? (
+                    {servicos.length === 0 ? (
                         <p className="mensagemSemServico">{mensagemVazio}</p>
                     ) : (
-                        <CardServico
-                            descricao={objServico.descricao}
-                            valor={"R$ " + objServico.valor}
-                            btnMaisDetalhes={
-                                <Botao
-                                    classe="btn-card-serv"
-                                    children={"Mais detalhes"}
-                                />
-
-                            }
-                            btnApagarServico={
-                                <Botao
-                                    classe="btn-card-serv apagar"
-                                    children={"Apagar"}
-                                    onclick={poupUpApagar}
-                                />
-                            }
-                        />
-
-                        
+                        servicos.map((servico, index) => (
+                            <CardServico
+                                key={index}
+                                descricao={servico.descricao}
+                                valor={"R$ " + servico.valor}
+                                btnMaisDetalhes={
+                                    <Botao
+                                        classe="btn-card-serv"
+                                        children={"Mais detalhes"}
+                                    />
+                                }
+                                btnApagarServico={
+                                    <Botao
+                                        classe="btn-card-serv apagar"
+                                        children={"Apagar"}
+                                        onclick={() =>
+                                            poupUpApagar(servico, index)
+                                        }
+                                    />
+                                }
+                            />
+                        ))
                     )}
-
-                     
                 </div>
 
                 <div className="buttons">
                     <Botao classe="btn-novo-servico">
-                    <Link to="/cadastroServico" classe="link-novo-servico">
-                        Novo serviço
-                    </Link>
+                        <Link to="/cadastroServico" classe="link-novo-servico">
+                            Novo serviço
+                        </Link>
                     </Botao>
                 </div>
-                        
             </main>
         </>
     );

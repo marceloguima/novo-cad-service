@@ -30,20 +30,20 @@ const CadastroServico = () => {
             obs: dadosServico.obs,
         };
 
-          const arrServicos = [];
     
-        arrServicos.push(servicoCadastrado)
-        console.log(arrServicos)
+       
+        // lê o array existente
+        const servicos = JSON.parse(localStorage.getItem("servicos") || "[]")
+        // add um novo serviço
+        const listaServicos = [...servicos, servicoCadastrado]
+        
+        localStorage.setItem("servicos", JSON.stringify(listaServicos));
 
-
-
-        localStorage.setItem("servico", JSON.stringify(servicoCadastrado));
-
-        console.log("Salvo no localStorage:", servicoCadastrado);
+        console.log("Salvo no localStorage:", listaServicos);
 
         setTimeout(() => {
             setMsgSucesso("");
-        }, 2500);
+        }, 2000);
         return setMsgSucesso(
             <OverlayPoupUp mensagem="Serviço cadastrado com sucesso!" classNameTexto="sucesso"/>
         ); 

@@ -61,3 +61,18 @@
     color: #ffffff;
   padding: 14px 36%;
 }
+
+.div-apagando-servico{
+    position:absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+.lixeira-animada{
+    width: 80px;
+}
+ 
