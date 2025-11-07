@@ -2,21 +2,26 @@
     text-align: center;
 }
 
+.services{
+    height: 68vh;
+}
+
 .btn-card-serv {
     height: 40px;
     color: #ffffff;
-    font-size: 1.5rem !important;
     box-shadow: none !important;
-    padding: 10px !important;
+    /* padding: 10px !important; */
+    width: 20%;
     box-shadow: 1px 2px 4px #616161 !important;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .apagar {
     background: #b1b1b1 !important;
 
-    color: #c40404;
+    color: #202020;
     font-weight: 500;
 }
 
@@ -38,4 +43,14 @@
 .cancela-apagar {
     background-color: #b1b1b1 !important;
     color: #000;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.novo-servico a{
+    color: #ffffff;
+  padding: 12px 150px;
 }

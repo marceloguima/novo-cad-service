@@ -4,12 +4,11 @@ import Botao from "../../components/Botao";
 import Header from "../../components/Header";
 import CardTotal from "../../components/Card-total";
 import NavBar from "../../components/NavBar";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import OverlayPoupUp from "../../components/poup-up";
 
-import { MdOutlinePostAdd } from "react-icons/md";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 
 const ServicosDoDia = () => {
     const [mensagemVazio, setMensagemVazio] = useState("");
@@ -85,25 +84,183 @@ const ServicosDoDia = () => {
                             btnMaisDetalhes={
                                 <Botao
                                     classe="btn-card-serv"
-                                    children={<MdOutlinePostAdd />}
+                                    children={"Ver mais"}
                                 />
+
                             }
                             btnApagarServico={
                                 <Botao
                                     classe="btn-card-serv apagar"
-                                    children={<RiDeleteBin6Line />}
+                                    children={"Apagar"}
                                     onclick={poupUpApagar}
                                 />
                             }
                         />
+
+                        
                     )}
+
+                      <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            btnMaisDetalhes={
+                                <Botao
+                                    classe="btn-card-serv"
+                                    children={"Ver mais"}
+                                />
+
+                            }
+                            btnApagarServico={
+                                <Botao
+                                    classe="btn-card-serv apagar"
+                                    children={"Apagar"}
+                                    onclick={poupUpApagar}
+                                />
+                            }
+                        />
+
+                          <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            btnMaisDetalhes={
+                                <Botao
+                                    classe="btn-card-serv"
+                                    children={"Ver mais"}
+                                />
+
+                            }
+                            btnApagarServico={
+                                <Botao
+                                    classe="btn-card-serv apagar"
+                                    children={"Apagar"}
+                                    onclick={poupUpApagar}
+                                />
+                            }
+                        />
+
+                          <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            btnMaisDetalhes={
+                                <Botao
+                                    classe="btn-card-serv"
+                                    children={"Ver mais"}
+                                />
+
+                            }
+                            btnApagarServico={
+                                <Botao
+                                    classe="btn-card-serv apagar"
+                                    children={"Apagar"}
+                                    onclick={poupUpApagar}
+                                />
+                            }
+                        />
+
+                          <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            btnMaisDetalhes={
+                                <Botao
+                                    classe="btn-card-serv"
+                                    children={"Ver mais"}
+                                />
+
+                            }
+                            btnApagarServico={
+                                <Botao
+                                    classe="btn-card-serv apagar"
+                                    children={"Apagar"}
+                                    onclick={poupUpApagar}
+                                />
+                            }
+                        />
+
+                          <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            btnMaisDetalhes={
+                                <Botao
+                                    classe="btn-card-serv"
+                                    children={"Ver mais"}
+                                />
+
+                            }
+                            btnApagarServico={
+                                <Botao
+                                    classe="btn-card-serv apagar"
+                                    children={"Apagar"}
+                                    onclick={poupUpApagar}
+                                />
+                            }
+                        />
+
+                          <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            btnMaisDetalhes={
+                                <Botao
+                                    classe="btn-card-serv"
+                                    children={"Ver mais"}
+                                />
+
+                            }
+                            btnApagarServico={
+                                <Botao
+                                    classe="btn-card-serv apagar"
+                                    children={"Apagar"}
+                                    onclick={poupUpApagar}
+                                />
+                            }
+                        />
+
+                          <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            btnMaisDetalhes={
+                                <Botao
+                                    classe="btn-card-serv"
+                                    children={"Ver mais"}
+                                />
+
+                            }
+                            btnApagarServico={
+                                <Botao
+                                    classe="btn-card-serv apagar"
+                                    children={"Apagar"}
+                                    onclick={poupUpApagar}
+                                />
+                            }
+                        />
+
+                          <CardServico
+                            descricao={objServico.descricao}
+                            valor={"R$ " + objServico.valor}
+                            btnMaisDetalhes={
+                                <Botao
+                                    classe="btn-card-serv"
+                                    children={"Ver mais"}
+                                />
+
+                            }
+                            btnApagarServico={
+                                <Botao
+                                    classe="btn-card-serv apagar"
+                                    children={"Apagar"}
+                                    onclick={poupUpApagar}
+                                />
+                            }
+                        />
                 </div>
 
                 <div className="buttons">
+                    <Botao classe="novo-servico">
                     <Link to="/cadastroServico" classe="novo-servico">
                         Novo serviço
                     </Link>
+                    </Botao>
                 </div>
+                        
             </main>
         </>
     );
