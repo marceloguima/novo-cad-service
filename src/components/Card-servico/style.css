@@ -16,15 +16,30 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* gap: 10px; */
 }
 
 .content h2 {
-    font-size: 1rem;
+    font-size: .9rem;
 }
+
+.dados{
+    width: 100%;
+}
+
 
 .dados p {
     font-size: 0.8rem !important;
+}
+
+.campo-valor span{
+margin-right: 5px;
+font-weight: 700;
+}
+
+.titulo-descricao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 /* campo do textarea da observação */
@@ -36,4 +51,11 @@
     padding: 5px;
     border-radius: 5px;
     font-size: 0.8rem;
+}
+
+
+.butons-card-servico{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
