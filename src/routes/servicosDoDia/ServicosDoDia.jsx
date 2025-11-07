@@ -78,7 +78,7 @@ const ServicosDoDia = () => {
 
         // animação de lixeira
         setApagando(
-            <OverlayPoupUp img="/public/gif-lixeira.gif" mensagem="Apagando..." altImg="gif de lixeira"/>
+            <OverlayPoupUp img="/gif-lixeira.gif" mensagem="Apagando..." altImg="gif de lixeira"/>
         );
         setTimeout(() => {
             setServicos(novosServicos);
