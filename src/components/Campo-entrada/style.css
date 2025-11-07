@@ -18,6 +18,12 @@ label{
     box-shadow: 1px 2px 4px #616161;
 }
 
+.caixa-erro{
+    height: 15px;
+    display: flex;
+    align-items: center;
+}
+
 .mensagem-erro{
     color: red;
     font-size: 0.8rem;

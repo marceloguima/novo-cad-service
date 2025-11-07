@@ -17,7 +17,7 @@
     width: 100%;
     display: flex;
     gap: 15px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 
@@ -40,5 +40,4 @@
 .form-cad-servico{
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }

@@ -73,7 +73,7 @@ const CadastroServico = () => {
                         htmlFor="desc"
                         erro={errors["descricao"]}
                         {...register("descricao", {
-                            required: "Preencha este campo",
+                            required: "Preencha descrição",
                         })}
                     />
 
@@ -87,7 +87,7 @@ const CadastroServico = () => {
                             htmlFor="valor"
                             erro={errors["valor"]}
                             {...register("valor", {
-                                required: "Preencha este campo",
+                                required: "Preencha valor",
                             })}
                         />
 
@@ -101,7 +101,7 @@ const CadastroServico = () => {
                             // onChange={handleData}
                             erro={errors["data"]}
                             {...register("data", {
-                                required: "Preencha este campo",
+                                required: "Preencha data",
                             })}
                         />
                     </div>
@@ -117,7 +117,7 @@ const CadastroServico = () => {
                             // onChange={handlePlaca}
                             erro={errors["modelo"]}
                             {...register("modelo", {
-                                required: "Preencha este campo",
+                                required: "Preencha modelo veículo",
                             })}
                         />
 
@@ -131,7 +131,7 @@ const CadastroServico = () => {
                             // onChange={handlePlaca}
                             erro={errors["placa"]}
                             {...register("placa", {
-                                required: "Preencha este campo",
+                                required: "Preencha placa",
                             })}
                         />
                     </div>
@@ -145,7 +145,7 @@ const CadastroServico = () => {
                         htmlFor="vend"
                         erro={errors["vendedor"]}
                         {...register("vendedor", {
-                            required: "Preencha este campo",
+                            required: "Preencha vendedor",
                         })}
                     />
                     <label htmlFor="obs">Observação</label>

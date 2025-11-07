@@ -17,7 +17,10 @@ const CampoEntrada = React.forwardRef((props, ref) => {
                 ref={ref}
                 {...rest}
             />
+            <div className="caixa-erro">
+
             {erro && <span className="mensagem-erro">{mensagemErro}</span>}{" "}
+            </div>
         </div>
     );
 });
