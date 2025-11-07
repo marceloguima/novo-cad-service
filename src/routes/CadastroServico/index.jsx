@@ -63,7 +63,7 @@ const CadastroServico = () => {
 
             <main>
                 {msgSucesso}
-                <form onSubmit={handleSubmit(submit)}>
+                <form onSubmit={handleSubmit(submit)} className="form-cad-servico">
                     <CampoEntrada
                         tipo="text"
                         place="Ex: troca de..."

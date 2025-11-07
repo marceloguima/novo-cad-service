@@ -59,3 +59,7 @@ font-weight: 700;
     display: flex;
     justify-content: space-around;
 }
+
+.butons-card-servico button{
+    height: 40px !important;
+}

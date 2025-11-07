@@ -104,8 +104,8 @@ const ServicosDoDia = () => {
                 </div>
 
                 <div className="buttons">
-                    <Botao classe="novo-servico">
-                    <Link to="/cadastroServico" classe="novo-servico">
+                    <Botao classe="btn-novo-servico">
+                    <Link to="/cadastroServico" classe="link-novo-servico">
                         Novo serviço
                     </Link>
                     </Botao>
