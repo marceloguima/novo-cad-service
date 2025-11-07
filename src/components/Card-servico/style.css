@@ -16,14 +16,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* gap: 10px; */
 }
 
 .content h2 {
     font-size: 1rem;
 }
 
-.content p {
-    font-size: 0.8rem;
+.dados p {
+    font-size: 0.8rem !important;
 }
 
 /* campo do textarea da observação */
@@ -35,10 +36,4 @@
     padding: 5px;
     border-radius: 5px;
     font-size: 0.8rem;
-}
-
-.btn-card-serv {
-    max-width: 120px;
-    height: 40px;
-    color: #fff;
 }

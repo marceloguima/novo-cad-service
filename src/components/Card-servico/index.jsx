@@ -1,5 +1,7 @@
 import "./style.css";
-import Botao from "../Botao";
+// import Botao from "../Botao";
+
+
 
 const CardServico = (props) => {
     return (
@@ -13,9 +15,11 @@ const CardServico = (props) => {
                     <p>{props.placa}</p>
                     <p>{props.vendedor}</p>
                 </div>
-                <Botao classe="btn-card-serv" texto="Ver mais" />
+                {props.btnMaisDetalhes}
+                {props.btnApagarServico}
+ 
             </div>
-            <p className="obs">{props.obs}</p> 
+            {props.obs}
         </div>
     );
 };

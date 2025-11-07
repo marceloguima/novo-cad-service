@@ -1,3 +1,37 @@
 .mensagemSemServico{
     text-align: center;
 }
+
+
+.btn-card-serv {
+    height: 40px;
+    color: #ffffff;
+    font-size: 1.5rem !important;
+    box-shadow: none !important;
+    padding: 10px !important;
+    display: flex;
+    align-items: center;
+}
+
+.apagar{
+background: #b1b1b1 !important;
+    color: #c40404;
+    font-weight: 500;
+}
+
+.alerta{
+    color: red;
+    font-size: 1rem !important;
+}
+
+.conclui-apagar, .cancela-apagar{
+    font-size: .9rem !important;
+}
+
+.conclui-apagar{
+    background-color: #c40404 !important
+}
+
+.cancela-apagar{
+    background-color: #b1b1b1 !important;
+}

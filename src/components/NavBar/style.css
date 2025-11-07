@@ -11,10 +11,6 @@ nav ul {
     align-items: center;
 }
 
-.active {
-    font-weight: bold;
-    border-bottom: 2px solid #235e96;
-}
 
 a {
     text-decoration: none;

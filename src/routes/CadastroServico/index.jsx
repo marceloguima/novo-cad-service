@@ -5,6 +5,7 @@ import Botao from "../../components/Botao";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar";
+import OverlayPoupUp from "../../components/poup-up";
 
 const CadastroServico = () => {
     const [msgSucesso, setMsgSucesso] = useState("");
@@ -36,16 +37,9 @@ const CadastroServico = () => {
         setTimeout(() => {
             setMsgSucesso("");
         }, 2500);
-        return (
-            setMsgSucesso(
-            <div className="overlay">
-                <div className="card-mensagem-sucesso">
-                    <p>{"Serviço cadastrado com sucesso!"}</p>
-                </div>
-            </div>
-            )
-        );
-       
+        return setMsgSucesso(
+            <OverlayPoupUp mensagem="Serviço cadastrado com sucesso!" classNameTexto="sucesso"/>
+        ); 
     };
 
     console.log(errors);
@@ -154,12 +148,12 @@ const CadastroServico = () => {
                     <div className="botoes">
                         <Botao
                             classe="botoes-padrao btn-salvar"
-                            texto="Salvar"
+                            children="Salvar"
                             type="submit"
                         />
                         <Botao
                             classe="btn-cancelar"
-                            texto="Cancelar"
+                            children="Cancelar"
                             onclick={cancela}
                         />
                     </div>

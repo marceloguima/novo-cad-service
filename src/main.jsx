@@ -6,7 +6,6 @@ import Inicial from "./routes/Inicial.jsx";
 import Cadastro from "./routes/CadastroUser/index.jsx";
 import Login from "./routes/Login/index.jsx"
 import ServicosDoDia from "./routes/servicosDoDia/ServicosDoDia.jsx";
-import ServicosDaSemana from "./routes/ServicosDaSemana.jsx";
 
 import ServicoDoMes from "./routes/ServicoMes/index.jsx";
 import CadastroServico from "./routes/CadastroServico/index.jsx";
@@ -50,10 +49,10 @@ const router = createBrowserRouter([
                 element: <CadastroServico />,
             },
 
-            {
-                path: "servicoSemana",
-                element: <ServicosDaSemana />,
-            },
+            // {
+            //     path: "servicoSemana",
+            //     element: <ServicosDaSemana />,
+            // },
             {
                 path: "servicoMes",
                 element: <ServicoDoMes />,

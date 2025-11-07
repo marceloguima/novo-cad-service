@@ -32,29 +32,6 @@
     width: 50%;
 }
 
-.overlay{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #00000093;
-}
-
-.card-mensagem-sucesso{
-    width: 300px;
-    height: 80px;
-    border-radius: 10px;
-    background: #ffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 100px auto;
-
-}
-
-.card-mensagem-sucesso p{
-    color: #2a7e03;
-    font-size: 1.1rem;
-    font-weight: 500;
+.sucesso{
+    color: green;
 }

@@ -1,10 +1,10 @@
 import "./style.css"
 
 
-const Botao = ({tag, classe, onclick, texto,  type}) => {
+const Botao = ({classe, onclick, children, type}) => {
   return (
 
-   <button className={classe} id="btn-principal" onClick={onclick} type={type}>{texto}</button>
+   <button className={classe} id="btn-principal" onClick={onclick} type={type}>{children}</button>
   )
 }
 
