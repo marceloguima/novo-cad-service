@@ -1,7 +1,6 @@
-.mensagemSemServico{
+.mensagemSemServico {
     text-align: center;
 }
-
 
 .btn-card-serv {
     height: 40px;
@@ -9,29 +8,34 @@
     font-size: 1.5rem !important;
     box-shadow: none !important;
     padding: 10px !important;
+    box-shadow: 1px 2px 4px #616161 !important;
     display: flex;
     align-items: center;
 }
 
-.apagar{
-background: #b1b1b1 !important;
+.apagar {
+    background: #b1b1b1 !important;
+
     color: #c40404;
     font-weight: 500;
 }
 
-.alerta{
+.alerta {
     color: red;
     font-size: 1rem !important;
 }
 
-.conclui-apagar, .cancela-apagar{
-    font-size: .9rem !important;
+.conclui-apagar,
+.cancela-apagar {
+    font-size: 0.9rem !important;
+    padding: 0 15px !important;
 }
 
-.conclui-apagar{
-    background-color: #c40404 !important
+.conclui-apagar {
+    background-color: #c40404 !important;
 }
 
-.cancela-apagar{
+.cancela-apagar {
     background-color: #b1b1b1 !important;
+    color: #000;
 }

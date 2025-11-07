@@ -30,6 +30,13 @@ const CadastroServico = () => {
             obs: dadosServico.obs,
         };
 
+          const arrServicos = [];
+    
+        arrServicos.push(servicoCadastrado)
+        console.log(arrServicos)
+
+
+
         localStorage.setItem("servico", JSON.stringify(servicoCadastrado));
 
         console.log("Salvo no localStorage:", servicoCadastrado);
@@ -40,7 +47,10 @@ const CadastroServico = () => {
         return setMsgSucesso(
             <OverlayPoupUp mensagem="Serviço cadastrado com sucesso!" classNameTexto="sucesso"/>
         ); 
+      
     };
+
+
 
     console.log(errors);
 

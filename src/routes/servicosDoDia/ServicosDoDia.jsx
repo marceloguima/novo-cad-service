@@ -15,6 +15,7 @@ const ServicosDoDia = () => {
     const [mensagemVazio, setMensagemVazio] = useState("");
     const [mensagemApagar, setMensagemApagar] = useState("");
 
+
     const [objServico, setObjServico] = useState(() =>
         JSON.parse(localStorage.getItem("servico") || "{}")
     );
