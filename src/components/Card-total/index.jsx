@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";        
 
-const CardTotal = () => {
+const CardTotal = (props) => {
 const [isVisible, setIsVisible] = useState(true);
 
 
@@ -21,15 +21,16 @@ const toggleVisibility = () => {
 
             <div>
                 {isVisible ? (  
-                    <span>Total bruto: R$ 2.000</span>
+                   <p>Total bruto: R$ <span>{props.valor}</span></p>
                 ) : ( 
-                    <span>Total bruto: R$ ***</span>
+                   <p>Total bruto: R$ <span>****</span></p>
                 )}
               
               {isVisible ? (
-                <span>Total liquido: R$ 900</span>
+                   <p>Total líquido: R$ <span>{props.valorLiquido}</span></p>
                 ) : (
-                <span>Total liquido: R$ ***</span>)}
+                   <p>Total líquido: R$ <span>****</span></p>
+                )}
                 
           
       </div>

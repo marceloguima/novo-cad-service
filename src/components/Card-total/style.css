@@ -17,8 +17,8 @@
     justify-content: center;
 }
 
-.card-total div span {
-    font-size: 14px;
+.card-total div p, span {
+    font-size: .9rem;
 }
 
 .btn-eye {

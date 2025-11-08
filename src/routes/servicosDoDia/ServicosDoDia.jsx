@@ -5,6 +5,8 @@ import Header from "../../components/Header";
 import CardTotal from "../../components/Card-total";
 import NavBar from "../../components/NavBar";
 import OverlayPoupUp from "../../components/poup-up";
+import gifLixeira from '../../assets/gif-lixeira.gif';
+
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -30,13 +32,20 @@ const ServicosDoDia = () => {
         }
     }, []);
 
-    useEffect(() => {
-        if (servicos.length === 0) {
-            setMensagemVazio("Nenhum serviço cadastrado hoje.");
-        } else {
-            setMensagemVazio("");
-        }
-    }, [servicos]);
+    // Calcula o total dos valores
+const totalValor = servicos.reduce((accumulator, servico) => {
+  return accumulator + parseFloat(servico.valor || 0);
+}, 0);
+
+let valorLiquido = totalValor * 45 / 100
+
+    console.log(totalValor)
+    console.log("teste")
+        console.log(valorLiquido)
+
+
+
+    
 
     // monta o componente com o componente cardServico, com o serviço a
     // ser apagado, verificando se realmente o usuário quer apagar.
@@ -78,7 +87,7 @@ const ServicosDoDia = () => {
 
         // animação de lixeira
         setApagando(
-            <OverlayPoupUp img="/gif-lixeira.gif" mensagem="Apagando..." altImg="gif de lixeira"/>
+            <OverlayPoupUp img={gifLixeira} mensagem="Apagando..." altImg="gif de lixeira"/>
         );
         setTimeout(() => {
             setServicos(novosServicos);
@@ -101,7 +110,7 @@ const ServicosDoDia = () => {
 
     return (
         <>
-            <Header card={<CardTotal />} nav={<NavBar />} />
+            <Header card={<CardTotal valor={totalValor.toFixed(2)} valorLiquido={valorLiquido.toFixed(2)}/>} nav={<NavBar />} />
             <main>
                 <div className="services">
                    

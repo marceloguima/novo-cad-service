@@ -7,8 +7,10 @@ import { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar";
 import OverlayPoupUp from "../../components/poup-up";
 
+    
 const CadastroServico = () => {
     const [msgSucesso, setMsgSucesso] = useState("");
+    const [total, setTotal] = useState(0);
 
     const {
         register,
@@ -20,7 +22,7 @@ const CadastroServico = () => {
     // envia form
     const submit = (dadosServico) => {
         // dados usados para renderizar o cardServico "outras páginas"
-        const servicoCadastrado = {
+    const servicoCadastrado = {
             descricao: dadosServico.descricao,
             valor: dadosServico.valor,
             data: dadosServico.data,
@@ -29,41 +31,52 @@ const CadastroServico = () => {
             vendedor: dadosServico.vendedor,
             obs: dadosServico.obs,
         };
+           console.log("teste")
 
-    
-       
+
         // lê o array existente
-        const servicos = JSON.parse(localStorage.getItem("servicos") || "[]")
+        const servicos = JSON.parse(localStorage.getItem("servicos") || "[]");
         // add um novo serviço
-        const listaServicos = [...servicos, servicoCadastrado]
-        
+        const listaServicos = [...servicos, servicoCadastrado];
+
         localStorage.setItem("servicos", JSON.stringify(listaServicos));
 
         console.log("Salvo no localStorage:", listaServicos);
 
+
+
+        function soma() {
+            const valorEntrada = parseFloat(servicoCadastrado.valor);
+
+            setTotal(totalAnterior => totalAnterior + valorEntrada);
+        }
+        soma();
+   
+
+
         setTimeout(() => {
             setMsgSucesso("");
-        }, 2000);
+        }, 1500);
         return setMsgSucesso(
-            <OverlayPoupUp mensagem="Serviço cadastrado com sucesso!" classNameTexto="sucesso"/>
-        ); 
-      
+            <OverlayPoupUp
+                mensagem="Serviço cadastrado com sucesso!"
+                classNameTexto="sucesso"
+            />
+        );
     };
-
-
 
     console.log(errors);
 
-    // limpa campo
-    const cancela = () => {};
-
+    
     return (
         <>
             <Header nome="Cadastro de serviço" nav={<NavBar />} />
-
             <main>
                 {msgSucesso}
-                <form onSubmit={handleSubmit(submit)} className="form-cad-servico">
+                <form
+                    onSubmit={handleSubmit(submit)}
+                    className="form-cad-servico"
+                    >
                     <CampoEntrada
                         tipo="text"
                         place="Ex: troca de..."
@@ -75,7 +88,7 @@ const CadastroServico = () => {
                         {...register("descricao", {
                             required: "Preencha descrição",
                         })}
-                    />
+                        />
 
                     <div className="valor-data">
                         <CampoEntrada
@@ -89,7 +102,7 @@ const CadastroServico = () => {
                             {...register("valor", {
                                 required: "Preencha valor",
                             })}
-                        />
+                            />
 
                         <CampoEntrada
                             tipo="date"
@@ -103,7 +116,7 @@ const CadastroServico = () => {
                             {...register("data", {
                                 required: "Preencha data",
                             })}
-                        />
+                            />
                     </div>
 
                     <div className="valor-data">
@@ -119,7 +132,7 @@ const CadastroServico = () => {
                             {...register("modelo", {
                                 required: "Preencha modelo veículo",
                             })}
-                        />
+                            />
 
                         <CampoEntrada
                             tipo="text"
@@ -133,7 +146,7 @@ const CadastroServico = () => {
                             {...register("placa", {
                                 required: "Preencha placa",
                             })}
-                        />
+                            />
                     </div>
 
                     <CampoEntrada
@@ -147,25 +160,24 @@ const CadastroServico = () => {
                         {...register("vendedor", {
                             required: "Preencha vendedor",
                         })}
-                    />
+                        />
                     <label htmlFor="obs">Observação</label>
                     <textarea
                         name="obs"
                         id="obs"
                         {...register("obs")}
-                    ></textarea>
+                        ></textarea>
 
                     <div className="botoes">
                         <Botao
                             classe="botoes-padrao btn-salvar"
                             children="Salvar"
                             type="submit"
-                        />
+                            />
                         <Botao
                             classe="btn-cancelar"
                             children="Cancelar"
-                            onclick={cancela}
-                        />
+                            />
                     </div>
                 </form>
             </main>
