@@ -13,6 +13,7 @@ const Login = () => {
                 <img src="./minha-logo.png" alt="logo" className="logo" />
                 <form>
                     <CampoEntrada
+                    label="E-mil"
                         tipo="e-mail"
                         place="@gmail.com"
                         classe="campo"
@@ -22,6 +23,7 @@ const Login = () => {
                     />
 
                     <CampoEntrada
+                    label="Senha"
                         tipo="password"
                         place="$g#M27"
                         classe="campo"
@@ -30,7 +32,7 @@ const Login = () => {
                         htmlFor="senha"
                     />
 
-                    <Botao classe="botoes-padrao cadastrar" texto="Entrar" />
+                    <Botao classe="botoes-padrao cadastrar" children="Entrar" />
                     <p className="check-count">
                         Não tem uma conta?{" "}
                         <Link to="/cadastro">Criar conta</Link>

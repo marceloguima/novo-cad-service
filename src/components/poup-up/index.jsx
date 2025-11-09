@@ -6,6 +6,7 @@ const OverlayPoupUp = (props) => {
             <div className="poup-up">
                 <img src={props.img} alt={props.altImg} />
                 <p className={props.classNameTexto}>{props.mensagem}</p>
+                <div className="spner">{props.iconSpiner}</div>
                 {props.servico}
             </div>
         </div>

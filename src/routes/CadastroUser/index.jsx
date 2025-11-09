@@ -3,61 +3,165 @@ import CampoEntrada from "../../components/Campo-entrada";
 import Botao from "../../components/Botao";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
-
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import OverlayPoupUp from "../../components/poup-up";
+import Spner from "../../components/spinerCarregamento";
 
 const Cadastro = () => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [mensagemSucesso, setMensagemSucesso] = useState("");
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+
+    // verifica valor de senha para validar se coincide com confirma senha
+    const senha = watch("senha");
+
+    const submitUser = async (dadosUser) => {
+        setIsLoading(<OverlayPoupUp iconSpiner={<Spner />} mensagem="Enviando dados." classNameTexto="mensagem-enviando"/>);
+        setMensagemSucesso("");
+        try {
+            const resposta = await fetch("http://localhost:3001/usuarios", {
+                method: "post",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(dadosUser),
+            });
+
+            setTimeout(() => {
+                setIsLoading("");
+                if (resposta.ok) {
+                    setTimeout(() => {
+                        setMensagemSucesso("");
+                    }, 1000);
+                    setMensagemSucesso(<OverlayPoupUp mensagem="Cadastrado com sucesso!" classNameTexto="sucesso" />);
+                } else {
+                    setMensagemSucesso(<OverlayPoupUp mensagem="Erro ao cadastrar." classNameTexto="erro"/>);
+                }
+            }, 8000);
+        } catch (error) {
+            setIsLoading("");
+            setMensagemSucesso("Erro na comunicação.");
+        }
+
+        const userCadastrado = {
+            nome: dadosUser.nome,
+            email: dadosUser.email,
+            senha: dadosUser.senha,
+            confirmeSenha: dadosUser.confirmeSenha,
+            comissao: dadosUser.comissao,
+        };
+
+        console.log(userCadastrado);
+    };
+
     return (
         <>
-        <Header nome="Cadastre-se"/>
-        <main>
-            <form>
-                {/* esse componente é composto por label e input */}
-                <CampoEntrada
-                    tipo="text"
-                    place="Digite seu primeiro nome"
-                    texto="Nome"
-                    id="name"
-                    htmlFor="name"
+            <Header nome="Cadastre-se" />
+            <main>
+                <div>{isLoading}</div>
+                <p>{mensagemSucesso}</p>
+                <form onSubmit={handleSubmit(submitUser)}>
+                    {/* esse componente é composto por label e input */}
+                    <CampoEntrada
+                        label="Nome"
+                        tipo="text"
+                        place="Digite seu primeiro nome"
+                        texto="Nome"
+                        id="name"
+                        htmlFor="name"
+                        erro={errors["nome"]}
+                        {...register("nome", {
+                            required: "Por favor informe seu nome",
+                        })}
                     />
-                <CampoEntrada
-                    tipo="e-mail"
-                    place="@gmail.com"
-                    texto="E-mail"
-                    id="email"
-                    htmlFor="email"
-                    />
-
-                <CampoEntrada
-                    tipo="password"
-                    place="$g#M27"
-                    texto="Senha"
-                    id="senha"
-                    htmlFor="senha"
-                    />
-
-                <CampoEntrada
-                    tipo="password"
-                    place="$g#M27"
-                    texto="Confirme a senha"
-                    id="confirmeSenha"
-                    htmlFor="confirmeSenha"
-                    />
-
-                <CampoEntrada
-                    tipo="number"
-                    place="50"
-                    texto="Comissão sobre o serviço"
-                    id="comição"
-                    htmlFor="comição"
+                    <CampoEntrada
+                        label="E-mail"
+                        tipo="e-mail"
+                        place="@gmail.com"
+                        texto="E-mail"
+                        id="e-mail"
+                        htmlFor="e-mail"
+                        erro={errors["email"]}
+                        {...register("email", {
+                            required: "Por favor informe seu e-mail",
+                            pattern: {
+                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                message: "Por favor informe um e-mail válido",
+                            },
+                        })}
                     />
 
-                <Botao classe="botoes-padrao cadastrar" texto="Cadastrar" />
-                <p className="check-count">
-                    Já tem uma conta? <Link to="/login">Entrar</Link>
-                </p>
-            </form>
-        </main>
-                    </>
+                    <CampoEntrada
+                        label="Senha"
+                        tipo="password"
+                        place="$g#M27"
+                        texto="Senha"
+                        id="senha"
+                        htmlFor="senha"
+                        erro={errors["senha"]}
+                        {...register("senha", {
+                            required: "Por favor crie uma senha",
+                            minLength: {
+                                value: 6,
+                                message:
+                                    "A senha deve ter pelo menos 6 caracteres",
+                            },
+                            validate: (value) => {
+                                const temLetra = /[a-zA-Z]/.test(value);
+                                const temNumero = /[0-9]/.test(value);
+                                const temEspecial =
+                                    /[!@#$%^&*(),.?":{}|<>]/.test(value);
+                                return (
+                                    (temLetra && temNumero && temEspecial) ||
+                                    "Deve conter letras, números e caracteres especiais."
+                                );
+                            },
+                        })}
+                    />
+
+                    <CampoEntrada
+                        label="Confirme a senha"
+                        tipo="password"
+                        place="$g#M27"
+                        texto="Confirme a senha"
+                        id="confirmeSenha"
+                        htmlFor="confirmeSenha"
+                        erro={errors["confirmeSenha"]}
+                        {...register("confirmeSenha", {
+                            required: "Por favor confirme a senha criada",
+                            validate: (value) =>
+                                value === senha || "As senhas não coincidem",
+                        })}
+                    />
+
+                    <CampoEntrada
+                        label="Comissão sobre o serviço"
+                        tipo="number"
+                        place="50"
+                        texto="Comissão sobre o serviço"
+                        id="comição"
+                        htmlFor="comição"
+                        erro={errors["comissao"]}
+                        {...register("comissao", {
+                            required: "Por favor informe a comissão",
+                        })}
+                    />
+
+                    <Botao
+                        classe="botoes-padrao cadastrar"
+                        children="Cadastrar"
+                    />
+                    <p className="check-count">
+                        Já tem uma conta? <Link to="/login">Entrar</Link>
+                    </p>
+                </form>
+            </main>
+        </>
     );
 };
 

@@ -31,7 +31,6 @@ const CadastroServico = () => {
             vendedor: dadosServico.vendedor,
             obs: dadosServico.obs,
         };
-           console.log("teste")
 
 
         // lê o array existente
@@ -42,16 +41,6 @@ const CadastroServico = () => {
         localStorage.setItem("servicos", JSON.stringify(listaServicos));
 
         console.log("Salvo no localStorage:", listaServicos);
-
-
-
-        function soma() {
-            const valorEntrada = parseFloat(servicoCadastrado.valor);
-
-            setTotal(totalAnterior => totalAnterior + valorEntrada);
-        }
-        soma();
-   
 
 
         setTimeout(() => {
