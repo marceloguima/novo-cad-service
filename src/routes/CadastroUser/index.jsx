@@ -23,8 +23,12 @@ const Cadastro = () => {
     const senha = watch("senha");
 
     const submitUser = async (dadosUser) => {
-        setIsLoading(<OverlayPoupUp iconSpiner={<Spner />} mensagem="Enviando dados." classNameTexto="mensagem-enviando"/>);
+        setIsLoading(true);
         setMensagemSucesso("");
+
+        setIsLoading(true);
+        setMensagemSucesso("");
+
         try {
             const resposta = await fetch("http://localhost:3001/usuarios", {
                 method: "post",
@@ -32,20 +36,43 @@ const Cadastro = () => {
                 body: JSON.stringify(dadosUser),
             });
 
-            setTimeout(() => {
-                setIsLoading("");
-                if (resposta.ok) {
-                    setTimeout(() => {
-                        setMensagemSucesso("");
-                    }, 1000);
-                    setMensagemSucesso(<OverlayPoupUp mensagem="Cadastrado com sucesso!" classNameTexto="sucesso" />);
-                } else {
-                    setMensagemSucesso(<OverlayPoupUp mensagem="Erro ao cadastrar." classNameTexto="erro"/>);
-                }
-            }, 8000);
+            // porta
+            // json-server --watch db.json --port 3001
+            if (resposta.ok) {
+                setIsLoading(false);
+                setMensagemSucesso(
+                    <OverlayPoupUp
+                        mensagem="Cadastrado com sucesso!"
+                        classNameTexto="sucesso"
+                    />
+                );
+                setTimeout(() => {
+                    setMensagemSucesso("");
+                }, 3000);
+            } else {
+                setIsLoading(false);
+
+                setMensagemSucesso(
+                    <OverlayPoupUp
+                        mensagem="Erro ao cadastrar. Tente Novamente. "
+                        classNameTexto="erro"
+                    />
+                );
+                setTimeout(() => {
+                    setMensagemSucesso("");
+                }, 3000);
+            }
         } catch (error) {
-            setIsLoading("");
-            setMensagemSucesso("Erro na comunicação.");
+            setIsLoading(false);
+            setMensagemSucesso(
+                <OverlayPoupUp
+                    mensagem="Erro na comunicação com o servidor. Tente novamente mais tarde."
+                    classNameTexto="erro"
+                />
+            );
+            setTimeout(() => {
+                setMensagemSucesso("");
+            }, 2000);
         }
 
         const userCadastrado = {
@@ -63,7 +90,13 @@ const Cadastro = () => {
         <>
             <Header nome="Cadastre-se" />
             <main>
-                <div>{isLoading}</div>
+                {isLoading && (
+                    <OverlayPoupUp
+                        iconSpiner={<Spner />}
+                        mensagem="Enviando dados."
+                        classNameTexto="mensagem-enviando"
+                    />
+                )}
                 <p>{mensagemSucesso}</p>
                 <form onSubmit={handleSubmit(submitUser)}>
                     {/* esse componente é composto por label e input */}
@@ -144,8 +177,8 @@ const Cadastro = () => {
                         tipo="number"
                         place="50"
                         texto="Comissão sobre o serviço"
-                        id="comição"
-                        htmlFor="comição"
+                        id="comissao"
+                        htmlFor="comissao"
                         erro={errors["comissao"]}
                         {...register("comissao", {
                             required: "Por favor informe a comissão",

@@ -28,6 +28,10 @@ main {
 
 
 /* para erros e sucessos geral */
+.erro, .sucesso{
+    text-align: center;
+}
+
 .sucesso{
     color: green;
 }

@@ -7,7 +7,7 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
 }
 
@@ -16,14 +16,23 @@ a {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.8rem;
+    
 }
 
 a.link-inativo {
-    color: #686868;
+    color: #ffffff;
+    font-size: 1.3rem;
 }
 
 a.link-ativo {
-    color: #235e96;
+    /* color: #ececec;
     text-decoration: underline 3px;
-    font-weight: 700;
+    font-weight: 700; */
+    display: none;
+}
+
+.servicos-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

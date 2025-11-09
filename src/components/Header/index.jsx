@@ -9,10 +9,8 @@ const Header = (props) => {
                 <h1 className="titulo-pagina">{props.nome}</h1>
 
                 {props.card}
+                {props.nav}
             </div>
-
-            {props.nav}
-           
         </header>
     );
 };

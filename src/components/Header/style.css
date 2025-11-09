@@ -6,8 +6,8 @@ header{
 }
 
 .top{
+    background: #235E9C;
   width: 100%;
-  background: #235E9C;
   color: #fff;
   display: flex;
   height: 100px;
@@ -20,7 +20,7 @@ header{
 
 .titulo-pagina{
     width: 100%;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   text-align: center;
 }
 

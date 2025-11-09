@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
-import "./style.css"
+import "./style.css";
+import { FaScrewdriverWrench } from "react-icons/fa6";
+
 
 const NavBar = () => {
     return (
@@ -11,18 +13,20 @@ const NavBar = () => {
                         isActive ? "link-ativo" : "link-inativo"
                     }
                 >
-                    <li>SERVIÇO DE HOJE</li>
+                    <li className="servicos-icon">
+                        <FaScrewdriverWrench />
+                        <span>serviços</span>
+                    </li>
                 </NavLink>
 
-                
-                <NavLink
+                {/* <NavLink
                     to="/servicoMes"
                     className={({ isActive }) =>
                         isActive ? "link-ativo" : "link-inativo"
                     }
                 >
                     <li>SERVIÇO DO MÊS</li>
-                </NavLink>
+                </NavLink> */}
             </ul>
         </nav>
     );
