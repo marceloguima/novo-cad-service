@@ -5,8 +5,14 @@ import Header from "../../components/Header";
 import CardTotal from "../../components/Card-total";
 import NavBar from "../../components/NavBar";
 import OverlayPoupUp from "../../components/poup-up";
-import gifLixeira from '../../assets/gif-lixeira.gif';
+import gifLixeira from "../../assets/gif-lixeira.gif";
 
+// icones dos botões
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { MdModeEditOutline } from "react-icons/md";
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -16,8 +22,12 @@ const ServicosDoDia = () => {
     const [mensagemApagar, setMensagemApagar] = useState("");
     // Estado para armazenar qual serviço será apagado
     const [servicoParaApagar, setServicoParaApagar] = useState(null);
+    const [mensagemApagando, setMensagemApagando] = useState();
 
     const [servicos, setServicos] = useState([]);
+
+    // expandir cardServico
+    const [expandidoIndex, setExpandidoIndex] = useState(null);
 
     useEffect(() => {
         const servicosSalvos = JSON.parse(
@@ -33,19 +43,15 @@ const ServicosDoDia = () => {
     }, []);
 
     // Calcula o total dos valores
-const totalValor = servicos.reduce((accumulator, servico) => {
-  return accumulator + parseFloat(servico.valor || 0);
-}, 0);
+    const totalValor = servicos.reduce((accumulator, servico) => {
+        return accumulator + parseFloat(servico.valor || 0);
+    }, 0);
 
-let valorLiquido = totalValor * 45 / 100
+    let valorLiquido = (totalValor * 45) / 100;
 
-    console.log(totalValor)
-    console.log("teste")
-        console.log(valorLiquido)
-
-
-
-    
+    console.log(totalValor);
+    console.log("teste");
+    console.log(valorLiquido);
 
     // monta o componente com o componente cardServico, com o serviço a
     // ser apagado, verificando se realmente o usuário quer apagar.
@@ -59,14 +65,14 @@ let valorLiquido = totalValor * 45 / 100
                     <CardServico
                         descricao={servico.descricao}
                         valor={"R$ " + servico.valor}
-                        btnMaisDetalhes={
+                        btnApagarServico={
                             <Botao
                                 classe="btn-card-serv conclui-apagar"
                                 children={"Sim"}
                                 onclick={() => Deleta(index)}
                             />
                         }
-                        btnApagarServico={
+                        btnCancelaExclusao={
                             <Botao
                                 classe="btn-card-serv cancela-apagar"
                                 children={"Não"}
@@ -79,23 +85,28 @@ let valorLiquido = totalValor * 45 / 100
         );
     };
 
-    const [apagando, setApagando] = useState();
     // apaga
     const Deleta = (index) => {
         // remove o serviço pelo inice
         const novosServicos = servicos.filter((_, i) => i !== index);
 
         // animação de lixeira
-        setApagando(
-            <OverlayPoupUp img={gifLixeira} mensagem="Apagando..." altImg="gif de lixeira"/>
+        setMensagemApagando(
+            <OverlayPoupUp
+                img={gifLixeira}
+                mensagem="mensagemApagando..."
+                altImg="gif de lixeira"
+            />
         );
         setTimeout(() => {
             setServicos(novosServicos);
-            setApagando("");
+            setMensagemApagando("");
         }, 2800);
 
         // Atualiza o localStorage
         localStorage.setItem("servicos", JSON.stringify(novosServicos));
+        // chama novamente a mensagem
+        setMensagemVazio("Nenhum serviço cadastrado hoje.");
 
         // Fecha o popup
         setMensagemApagar("");
@@ -110,12 +121,19 @@ let valorLiquido = totalValor * 45 / 100
 
     return (
         <>
-            <Header card={<CardTotal valor={totalValor.toFixed(2)} valorLiquido={valorLiquido.toFixed(2)}/>} nav={<NavBar />} />
+            <Header
+                card={
+                    <CardTotal
+                        valor={totalValor.toFixed(2)}
+                        valorLiquido={valorLiquido.toFixed(2)}
+                    />
+                }
+                nav={<NavBar />}
+            />
             <main>
                 <div className="services">
-                   
-                        {apagando}
-                    
+                    {mensagemApagando}
+
                     {mensagemApagar}
                     {servicos.length === 0 ? (
                         <p className="mensagemSemServico">{mensagemVazio}</p>
@@ -125,19 +143,52 @@ let valorLiquido = totalValor * 45 / 100
                                 key={index}
                                 descricao={servico.descricao}
                                 valor={"R$ " + servico.valor}
-                                btnMaisDetalhes={
+                                btnExpandir={
                                     <Botao
-                                        classe="btn-card-serv"
-                                        children={"Mais detalhes"}
+                                        classe="btn-card-serv mais-detalhes"
+                                        children={
+                                            expandidoIndex === index ? (
+                                                <IoIosArrowDown />
+                                            ) : (
+                                                <IoIosArrowUp />
+                                            )
+                                        }
+                                        onclick={() =>{
+                                             console.log('Expandir card', index); 
+                                            setExpandidoIndex(
+                                                expandidoIndex === index
+                                                    ? null
+                                                    : index
+                                            )
+                                            
+                                        }}
                                     />
                                 }
+                                expandido={expandidoIndex === index}
+                                onExpandir={() =>
+                                    setExpandidoIndex(
+                                        expandidoIndex === index ? null : index
+                                    )
+                                }
+                                data={servico.data}
+                                modelo={servico.modelo}
+                                placa={servico.placa}
+                                vendedor={servico.vendedor}
+                                obs={servico.obs}
+
                                 btnApagarServico={
                                     <Botao
                                         classe="btn-card-serv apagar"
-                                        children={"Apagar"}
+                                        children={<RiDeleteBin6Fill />}
                                         onclick={() =>
                                             poupUpApagar(servico, index)
                                         }
+                                    />
+                                }
+                                btnEditarServico={
+                                    <Botao
+                                        classe="btn-card-serv editar"
+                                        children={<MdModeEditOutline />}
                                     />
                                 }
                             />

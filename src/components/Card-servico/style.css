@@ -9,6 +9,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+
 }
 
 .content {
@@ -31,7 +33,7 @@
     font-size: 0.8rem !important;
 }
 
-.campo-valor span{
+.dados-card span{
 margin-right: 5px;
 font-weight: 700;
 }
@@ -40,6 +42,7 @@ font-weight: 700;
     width: 100%;
     display: flex;
     justify-content: center;
+    
 }
 
 /* campo do textarea da observação */

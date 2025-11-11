@@ -8,19 +8,41 @@ const CardServico = (props) => {
                 <div className="dados">
                     <div className="titulo-descricao">
                         <h2>{props.descricao}</h2>
+                        {props.btnExpandir}
                     </div>
-                    <p className="campo-valor"><span>Valor</span>{props.valor}</p>
-                    <p>{props.modelo}</p>
-                    <p>{props.placa}</p>
-                    <p>{props.data}</p>
-                    <p>{props.vendedor}</p>
+                    <p className="dados-card">
+                        <span>Valor:</span>
+                        {props.valor}
+                    </p>
+
+                    {props.expandido && (
+                        <>
+                            <p className="dados-card">
+                                <span>Modelo:</span>
+                                {props.modelo}
+                            </p>
+                            <p className="dados-card">
+                                <span>Placa:</span>
+                                {props.placa}
+                            </p>
+                            <p className="dados-card">
+                                <span>data:</span>
+                                {props.data}
+                            </p>
+                            <p className="dados-card">
+                                <span>vendedor:</span>
+                                {props.vendedor}
+                            </p>
+                            {props.obs}
+                        </>
+                    )}
                 </div>
             </div>
-            {props.obs}
 
             <div className="butons-card-servico">
-                {props.btnMaisDetalhes}
                 {props.btnApagarServico}
+                {props.btnEditarServico}
+                {props.btnCancelaExclusao}
             </div>
         </div>
     );

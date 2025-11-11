@@ -8,6 +8,8 @@
     right: 0;
     background: #00000093;
     padding: 10px;
+    /* fica na frente */
+    z-index: 5;
 }
 
 
