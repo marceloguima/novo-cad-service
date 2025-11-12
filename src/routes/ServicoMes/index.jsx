@@ -3,7 +3,6 @@ import CardServico from "../../components/Card-servico";
 import CardTotal from "../../components/Card-total";
 import NavBar from "../../components/NavBar";
 import Header from "../../components/Header";
-import CampoObs from "../../components/campoObs";
 import "./style.css";
 
 const ServicoDoMes = () => {

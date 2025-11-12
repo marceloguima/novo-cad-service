@@ -176,6 +176,7 @@ const ServicosDoDia = () => {
                                 placa={servico.placa}
                                 vendedor={servico.vendedor}
                                 obs={servico.obs === "" ? mensagemObsVazio : servico.obs}
+                                obsClassName={servico.obs === "" ? "campo-obs" : "alerta-obs"}
                                 btnApagarServico={
                                     <Botao
                                         classe="btn-card-serv apagar"
