@@ -33,7 +33,12 @@ const CardServico = (props) => {
                                 <span>vendedor:</span>
                                 {props.vendedor}
                             </p>
-                            {props.obs}
+                            <div className="campo-obs">
+                                <p className="dados-card">
+                                    <span>Observação:</span>
+                                    {props.obs}
+                                </p>
+                            </div>
                         </>
                     )}
                 </div>

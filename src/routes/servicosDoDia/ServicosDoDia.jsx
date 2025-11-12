@@ -29,6 +29,10 @@ const ServicosDoDia = () => {
     // expandir cardServico
     const [expandidoIndex, setExpandidoIndex] = useState(null);
 
+    // caso não houver uma observação do campo obs, uma mensagem agradável (o campo obs não é de preenchimento obrigatório, mas por ficar melhor o layout com a renderização
+    //  do campo onde teria o texto obs, quero uma mensagem para quando for vazio)
+    const [mensagemObsVazio] = useState("Nenhuma observação neste serviço.");
+
     useEffect(() => {
         const servicosSalvos = JSON.parse(
             localStorage.getItem("servicos") || "[]"
@@ -51,7 +55,6 @@ const ServicosDoDia = () => {
 
     console.log(totalValor);
     console.log("teste");
-    console.log(valorLiquido);
 
     // monta o componente com o componente cardServico, com o serviço a
     // ser apagado, verificando se realmente o usuário quer apagar.
@@ -106,7 +109,6 @@ const ServicosDoDia = () => {
         // Atualiza o localStorage
         localStorage.setItem("servicos", JSON.stringify(novosServicos));
         // chama novamente a mensagem
-        setMensagemVazio("Nenhum serviço cadastrado hoje.");
 
         // Fecha o popup
         setMensagemApagar("");
@@ -148,19 +150,18 @@ const ServicosDoDia = () => {
                                         classe="btn-card-serv mais-detalhes"
                                         children={
                                             expandidoIndex === index ? (
-                                                <IoIosArrowDown />
-                                            ) : (
                                                 <IoIosArrowUp />
+                                            ) : (
+                                                <IoIosArrowDown />
                                             )
                                         }
-                                        onclick={() =>{
-                                             console.log('Expandir card', index); 
+                                        onclick={() => {
+                                            console.log("Expandir card", index);
                                             setExpandidoIndex(
                                                 expandidoIndex === index
                                                     ? null
                                                     : index
-                                            )
-                                            
+                                            );
                                         }}
                                     />
                                 }
@@ -174,8 +175,7 @@ const ServicosDoDia = () => {
                                 modelo={servico.modelo}
                                 placa={servico.placa}
                                 vendedor={servico.vendedor}
-                                obs={servico.obs}
-
+                                obs={servico.obs === "" ? mensagemObsVazio : servico.obs}
                                 btnApagarServico={
                                     <Botao
                                         classe="btn-card-serv apagar"
