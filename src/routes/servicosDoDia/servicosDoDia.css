@@ -28,7 +28,7 @@
 
 .apagar {
     color: #cbe7eb;
-    background: #f73030 !important;
+    background: #f73030e0 !important;
 }
 
 .editar {
@@ -57,7 +57,8 @@
 }
 
 .conclui-apagar {
-    background-color: #c40404 !important;
+    background-color: #f73030e0 !important;
+    color: #cbe7eb;
 }
 
 .cancela-apagar {
@@ -124,4 +125,18 @@
     overflow-x: hidden;
     font-weight: 500;
     background-color: #ff06061a;
+}
+
+
+#campo-obs{
+    display: none;
+}
+
+#alerta-obs{
+    display: block;
+    color: #ff0202;
+    position: absolute;
+    left: 0;
+    font-size: 1.1rem;
+ 
 }

@@ -7,7 +7,9 @@ const CardServico = (props) => {
             <div className="content">
                 <div className="dados">
                     <div className="titulo-descricao">
+                        <div id={props.id}>{props.icon}</div>
                         <h2>{props.descricao}</h2>
+
                         {props.btnExpandir}
                     </div>
                     <p className="dados-card">

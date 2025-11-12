@@ -7,9 +7,11 @@ import NavBar from "../../components/NavBar";
 import OverlayPoupUp from "../../components/poup-up";
 import gifLixeira from "../../assets/gif-lixeira.gif";
 
-// icones dos botões
+// icones
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+import { GoAlertFill } from "react-icons/go";
+
 
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
@@ -145,6 +147,8 @@ const ServicosDoDia = () => {
                                 key={index}
                                 descricao={servico.descricao}
                                 valor={"R$ " + servico.valor}
+                                // ícone de lembrete de qual card tem obs
+                                icon={<GoAlertFill />}
                                 btnExpandir={
                                     <Botao
                                         classe="btn-card-serv mais-detalhes"
@@ -175,8 +179,22 @@ const ServicosDoDia = () => {
                                 modelo={servico.modelo}
                                 placa={servico.placa}
                                 vendedor={servico.vendedor}
-                                obs={servico.obs === "" ? mensagemObsVazio : servico.obs}
-                                obsClassName={servico.obs === "" ? "campo-obs" : "alerta-obs"}
+                                obs={
+                                    servico.obs === ""
+                                        ? mensagemObsVazio
+                                        : servico.obs
+                                }
+                                obsClassName={
+                                    servico.obs === ""
+                                        ? "campo-obs"
+                                        : "alerta-obs"
+                                }
+                                // a className controla bordas e textos e o id controla um icone de fora
+                                id={
+                                    servico.obs === ""
+                                        ? "campo-obs"
+                                        : "alerta-obs"
+                                }
                                 btnApagarServico={
                                     <Botao
                                         classe="btn-card-serv apagar"
