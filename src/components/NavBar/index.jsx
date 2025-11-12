@@ -15,7 +15,7 @@ const NavBar = () => {
                 >
                     <li className="servicos-icon">
                         <FaScrewdriverWrench />
-                        <span>serviços</span>
+                        <span className="span-link-servicos">serviços</span>
                     </li>
                 </NavLink>
 

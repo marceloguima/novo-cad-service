@@ -1,5 +1,7 @@
 import "./style.css";
 // import Botao from "../Botao";
+import { TbHandFingerRight } from "react-icons/tb";
+
 
 const CardServico = (props) => {
     return (
@@ -37,7 +39,8 @@ const CardServico = (props) => {
                             </p>
                             <div className={props.obsClassName}>
                                 <p className="dados-card">
-                                    <span>Observação:</span>
+                                    <span>Observação: <TbHandFingerRight />
+</span>
                                     {props.obs}
                                 </p>
                             </div>

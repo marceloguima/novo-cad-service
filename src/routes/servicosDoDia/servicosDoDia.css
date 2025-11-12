@@ -105,6 +105,7 @@
     padding: 5px;
     height: 80px;
     overflow-x: hidden;
+    margin-top: 10px;
 }
 
 .campo-obs p {
@@ -125,6 +126,7 @@
     overflow-x: hidden;
     font-weight: 500;
     background-color: #ff06061a;
+    margin-top: 10px;
 }
 
 

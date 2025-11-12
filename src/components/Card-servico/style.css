@@ -43,6 +43,7 @@ font-weight: 700;
     display: flex;
     justify-content: center;
     position: relative;
+    margin-bottom: 20px;
     
 }
 
@@ -51,8 +52,14 @@ font-weight: 700;
     width: 100%;
     display: flex;
     justify-content: space-around;
+    margin-top: 15px;
 }
 
 .butons-card-servico button{
     height: 40px !important;
+}
+
+
+#campo-obs{
+    margin-top: 10px;
 }

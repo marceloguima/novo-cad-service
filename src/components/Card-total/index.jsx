@@ -21,15 +21,15 @@ const toggleVisibility = () => {
 
             <div>
                 {isVisible ? (  
-                   <p>Total bruto: R$ <span>{props.valor}</span></p>
+                   <p className="totais">Total bruto:  <span className="total-bruto">R$ {props.valor}</span></p>
                 ) : ( 
-                   <p>Total bruto: R$ <span>****</span></p>
+                   <p className="totais">Total bruto: R$ <span>****</span></p>
                 )}
               
               {isVisible ? (
-                   <p>Total líquido: R$ <span>{props.valorLiquido}</span></p>
+                   <p className="totais">Total líquido:<span className="total-liquido"> R$ {props.valorLiquido}</span></p>
                 ) : (
-                   <p>Total líquido: R$ <span>****</span></p>
+                   <p className="totais">Total líquido: R$ <span>****</span></p>
                 )}
                 
           
