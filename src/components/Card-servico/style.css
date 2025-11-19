@@ -22,6 +22,7 @@
 
 .content h2 {
     font-size: .9rem;
+    text-transform:capitalize;
 }
 
 .dados{
@@ -31,6 +32,7 @@
 
 .dados p {
     font-size: 0.8rem !important;
+     text-transform:capitalize;
 }
 
 .dados-card span{

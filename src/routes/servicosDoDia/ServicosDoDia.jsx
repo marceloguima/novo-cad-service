@@ -122,6 +122,8 @@ const ServicosDoDia = () => {
         setServicoParaApagar(null);
     };
 
+ 
+
     return (
         <>
             <Header
@@ -145,7 +147,7 @@ const ServicosDoDia = () => {
                             <CardServico
                                 key={index}
                                 descricao={servico.descricao}
-                                valor={"R$ " + servico.valor}
+                                valor={servico.valor}
                                 // ícone de lembrete de qual card tem obs
                                 icon={<GoAlertFill />}
                                 btnExpandir={
