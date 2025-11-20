@@ -187,6 +187,10 @@ const ServicosDoDia = () => {
                                         ? mensagemObsVazio
                                         : servico.obs
                                 }
+
+                                classNameDifereObs={
+                                    servico.obs === "" ? "sem-obs" :"com-obs"
+                                }
                                 obsClassName={
                                     servico.obs === ""
                                         ? "campo-obs"

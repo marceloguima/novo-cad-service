@@ -1,9 +1,7 @@
 .card-servico {
     width: 100%;
-    /* height: 142px ; */
     background: var(--cor-card);
     border-radius: 10px;
-    padding: 10px;
     gap: 10px;
     box-shadow: 1px 2px 4px #616161;
     display: flex;
@@ -11,19 +9,26 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-   
-
 }
 
-
-
-.card-aberto{
-z-index: 6;  
-height: auto;
-width: 200px;
-position: absolute;
+.card-aberto {
+    z-index: 6;
+    height: auto;
+    width: 300px;
+    position: absolute;
 }
 
+.com-obs, .sem-obs {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.com-obs{
+        background: var(--card-com-obs);
+        border-radius: 10px;
+
+}
 
 .mensagemSemServico {
     text-align: center;
@@ -34,17 +39,16 @@ position: absolute;
     padding: 30px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 180px;
 }
 
-
-.btn-card-serv{
+.btn-card-serv {
     width: 40px;
     height: 40px !important;
     background: transparent !important;
     box-shadow: none !important;
     border-radius: 50% !important;
 }
-
 
 .apagar,
 .editar,
@@ -55,7 +59,7 @@ position: absolute;
 }
 
 .apagar {
-    color:var(--cor-alerta);
+    color: var(--cor-alerta);
     background: var(--azul-preto) !important;
 }
 
@@ -75,7 +79,7 @@ position: absolute;
 }
 
 .alerta {
-    color:var(--cor-alerta);
+    color: var(--cor-alerta);
     font-size: 1rem !important;
 }
 
@@ -146,7 +150,7 @@ position: absolute;
 }
 
 .alerta-obs {
-    color:var(--cor-alerta);
+    color: var(--cor-alerta);
     border: solid 1px var(--cor-alerta);
     border-radius: 10px;
     box-shadow: 1px 2px 4px #616161;
@@ -158,15 +162,13 @@ position: absolute;
     margin-top: 10px;
 }
 
-
-#campo-obs{
+#campo-obs {
     display: none;
 }
 
-#alerta-obs{
+#alerta-obs {
     display: block;
     color: var(--cor-alerta);
     left: 0;
     font-size: 1.1rem;
- 
 }

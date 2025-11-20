@@ -11,9 +11,10 @@
     --cor-destaque:#0045ff;
     --azul-preto: #0d1224ef;
     --cinza:#dde0e2;
-    --cor-card:#d1d6dd;
+    --cor-card:#d9e4f3;
     --cor-sucesso:#50c204;
     --cor-alerta:#ff3d02;
+    --card-com-obs:#fddac3;
 }
 
 body {
