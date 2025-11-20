@@ -1,3 +1,30 @@
+.card-servico {
+    width: 100%;
+    /* height: 142px ; */
+    background: var(--cor-card);
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+    box-shadow: 1px 2px 4px #616161;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+   
+
+}
+
+
+
+.card-aberto{
+z-index: 6;  
+height: auto;
+width: 200px;
+position: absolute;
+}
+
+
 .mensagemSemServico {
     text-align: center;
 }
@@ -5,18 +32,19 @@
 .services {
     height: 64vh;
     padding: 30px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
-/* 
-.btn-card-serv {
-    color: #ffffff;
+
+
+.btn-card-serv{
+    width: 40px;
+    height: 40px !important;
+    background: transparent !important;
     box-shadow: none !important;
-    width: 40%;
-    max-width: 150px;
-    box-shadow: 1px 2px 4px #616161 !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
+    border-radius: 50% !important;
+}
+
 
 .apagar,
 .editar,
@@ -27,12 +55,13 @@
 }
 
 .apagar {
-    color: #cbe7eb;
-    background: #f73030e0 !important;
+    color:var(--cor-alerta);
+    background: var(--azul-preto) !important;
 }
 
 .editar {
-    color: #cbe7eb;
+    color: var(--cor-sucesso);
+    background-color: var(--azul-preto) !important;
 }
 
 .mais-detalhes {
@@ -46,7 +75,7 @@
 }
 
 .alerta {
-    color: red;
+    color:var(--cor-alerta);
     font-size: 1rem !important;
 }
 
@@ -117,8 +146,8 @@
 }
 
 .alerta-obs {
-    color: #c40404;
-    border: solid 1px #c40404;
+    color:var(--cor-alerta);
+    border: solid 1px var(--cor-alerta);
     border-radius: 10px;
     box-shadow: 1px 2px 4px #616161;
     padding: 5px;
@@ -136,8 +165,7 @@
 
 #alerta-obs{
     display: block;
-    color: #ff0202;
-    position: absolute;
+    color: var(--cor-alerta);
     left: 0;
     font-size: 1.1rem;
  

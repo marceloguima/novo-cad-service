@@ -2,17 +2,17 @@ import "./style.css";
 // import Botao from "../Botao";
 import { TbHandFingerRight } from "react-icons/tb";
 
-
 const CardServico = (props) => {
     return (
-        <div className="card-servico">
+        <div className={props.expandidoClassName}>
             <div className="content">
                 <div className="dados">
                     <div className="titulo-descricao">
-                        <div id={props.id}>{props.icon}</div>
+                        <div id={props.id} className="caixa-icon-alert-expandir">
+                            {props.icon}
+                            {props.btnExpandir}
+                        </div>
                         <h2>{props.descricao}</h2>
-
-                        {props.btnExpandir}
                     </div>
                     <p className="dados-card">
                         <span>Valor:</span>
@@ -39,8 +39,9 @@ const CardServico = (props) => {
                             </p>
                             <div className={props.obsClassName}>
                                 <p className="dados-card">
-                                    <span>Observação: <TbHandFingerRight />
-</span>
+                                    <span>
+                                        Observação: <TbHandFingerRight />
+                                    </span>
                                     {props.obs}
                                 </p>
                             </div>

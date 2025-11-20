@@ -35,9 +35,10 @@ a.link-inativo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--azul-preto);
 }
 
 .span-link-servicos{
-    color: #ffffff;
+
     font-size: .8rem;
 }

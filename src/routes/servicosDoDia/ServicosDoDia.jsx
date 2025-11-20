@@ -98,7 +98,7 @@ const ServicosDoDia = () => {
         setMensagemApagando(
             <OverlayPoupUp
                 img={gifLixeira}
-                mensagem="mensagemApagando..."
+                mensagem="Apagando..."
                 altImg="gif de lixeira"
             />
         );
@@ -176,6 +176,8 @@ const ServicosDoDia = () => {
                                         expandidoIndex === index ? null : index
                                     )
                                 }
+                                
+                                expandidoClassName={expandidoIndex === index ? "card-aberto card-servico" : "card-fechado card-servico"}
                                 data={servico.data}
                                 modelo={servico.modelo}
                                 placa={servico.placa}

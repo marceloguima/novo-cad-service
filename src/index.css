@@ -7,9 +7,18 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root{
+    --cor-destaque:#0045ff;
+    --azul-preto: #0d1224ef;
+    --cinza:#dde0e2;
+    --cor-card:#d1d6dd;
+    --cor-sucesso:#50c204;
+    --cor-alerta:#ff3d02;
+}
+
 body {
-    background-color: #f2f4f4;
-    color: #333;
+    
+   background: var(--cinza);
     width: 100vw;
 }
 
@@ -17,13 +26,15 @@ body {
     max-width: 500px;
     height: 100vh;
     margin: 0 auto;
-    border: solid 1px #e2e2e2;
+    padding: 10px;
 }
 
 
 main {
     width: 100%;
     padding: 0 8px;
+    border-radius: 20px;
+    background-color: var(--branco);
 }
 
 

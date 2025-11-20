@@ -1,5 +1,5 @@
 #btn-principal {
-    background: #235e9c;
+    background: var(--azul-preto);
     border: none;
     border-radius: 5px;
     padding: 12px;

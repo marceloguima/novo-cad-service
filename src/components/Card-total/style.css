@@ -2,7 +2,7 @@
     max-width: 250px;
     height: 60px;
     padding: 5px ;
-    background: #f3f3f3;
+    background: var(--azul-preto);
     box-shadow: 1px 2px 4px #474747;
     display: flex;
     gap: 5px;
@@ -19,6 +19,7 @@
 
 .totais {
     font-size: .9rem;
+    color: var(--cinza);
 }
 
 .card-total span{
@@ -29,14 +30,15 @@
     background: transparent;
     border: none;
     font-size: 1.3rem;
+    color: var(--cinza);
    
 }
 
 
 .total-bruto{
-    color: #eb2b2b;
+    color:var(--cor-alerta);
 }
 
 .total-liquido{
-    color: #004e0a;
+    color: var(--cor-sucesso);
 }
